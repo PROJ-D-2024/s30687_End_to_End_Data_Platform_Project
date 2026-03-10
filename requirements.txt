@@ -1,0 +1,5 @@
+kedro
+pyspark
+dbt-core
+dbt-postgres
+pandas

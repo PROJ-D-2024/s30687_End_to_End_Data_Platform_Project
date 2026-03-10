@@ -1,0 +1,11 @@
+# dataset_url: "data/01_raw/source_data.csv"
+dataset_url: "https://data.cityofchicago.org/resource/ijzp-q8t2.csv?$limit=50000"
+
+min_rows: 1000
+
+required_columns:
+  - id
+  - primary_type
+  - date
+
+top_k: 10

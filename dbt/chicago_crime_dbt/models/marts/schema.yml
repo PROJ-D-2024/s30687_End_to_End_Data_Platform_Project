@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: fct_crimes
+    description: "Analytics-ready fact table for Chicago crime incidents."
+    columns:
+      - name: id
+        description: "Unique identifier of the crime record."
+        tests:
+          - not_null
+          - unique
+
+      - name: crime_month
+        description: "Month in which the crime occurred."
+
+      - name: arrest_status
+        description: "Arrest classification derived from the arrest flag."
+        tests:
+          - accepted_values:
+              values: ['arrested', 'not_arrested']

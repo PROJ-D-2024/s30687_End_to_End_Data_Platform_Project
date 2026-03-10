@@ -1,0 +1,28 @@
+version: 2
+
+models:
+  - name: stg_crimes
+    description: "Cleaned staging model for Chicago crime records."
+    columns:
+      - name: id
+        description: "Unique identifier of the crime record."
+        tests:
+          - not_null
+          - unique
+
+      - name: case_number
+        description: "Case number assigned to the incident."
+        tests:
+          - not_null
+
+      - name: arrest
+        description: "Indicates whether an arrest was made."
+        tests:
+          - accepted_values:
+              values: [true, false]
+
+      - name: domestic
+        description: "Indicates whether the incident was domestic-related."
+        tests:
+          - accepted_values:
+              values: [true, false]

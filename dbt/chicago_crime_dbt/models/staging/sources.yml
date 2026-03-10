@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: chicago_crime_source
+    database: nyc
+    schema: public
+    tables:
+      - name: crime_aggregated
+        description: "Raw Chicago crime dataset loaded into PostgreSQL."

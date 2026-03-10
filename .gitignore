@@ -1,0 +1,104 @@
+# virtual envs
+venv/
+.venv/
+env/
+ENV/
+spark_env/
+*/spark_env/
+
+# python
+__pycache__/
+*.pyc
+
+# dbt
+target/
+dbt_packages/
+logs/
+
+# spark
+spark-warehouse/
+.metastore_db/
+# -----------------
+# Python
+# -----------------
+__pycache__/
+*.py[cod]
+*$py.class
+
+# virtual environments
+venv/
+.venv/
+env/
+ENV/
+spark_env/
+conda_env/
+
+# python packaging
+build/
+dist/
+*.egg-info/
+
+# -----------------
+# Jupyter
+# -----------------
+.ipynb_checkpoints/
+
+# -----------------
+# Kedro
+# -----------------
+data/01_raw/*
+data/02_intermediate/*
+data/03_primary/*
+data/04_feature/*
+data/05_model_input/*
+data/06_models/*
+data/07_model_output/*
+data/08_reporting/*
+data/09_tracking/*
+
+!data/01_raw/.gitkeep
+!data/02_intermediate/.gitkeep
+!data/03_primary/.gitkeep
+!data/04_feature/.gitkeep
+!data/05_model_input/.gitkeep
+!data/06_models/.gitkeep
+!data/07_model_output/.gitkeep
+!data/08_reporting/.gitkeep
+!data/09_tracking/.gitkeep
+
+# -----------------
+# dbt
+# -----------------
+dbt_packages/
+target/
+logs/
+
+# -----------------
+# Spark / Hadoop
+# -----------------
+.metastore_db/
+spark-warehouse/
+*.crc
+
+# temporary spark files
+tmp/
+temp/
+*.parquet
+
+# -----------------
+# OS files
+# -----------------
+.DS_Store
+Thumbs.db
+
+# -----------------
+# IDE
+# -----------------
+.vscode/
+.idea/
+
+# -----------------
+# secrets
+# -----------------
+.env
+*.env

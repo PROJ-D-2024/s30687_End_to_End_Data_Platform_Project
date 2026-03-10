@@ -1,0 +1,19 @@
+raw_data:
+  type: kedro_datasets.pandas.CSVDataset
+  filepath: data/01_raw/raw_data.csv
+
+validated_data:
+  type: kedro_datasets.pandas.CSVDataset
+  filepath: data/02_intermediate/validated_data.csv
+
+processed_data:
+  type: kedro_datasets.pandas.CSVDataset
+  filepath: data/03_primary/processed_data.csv
+
+metrics_table:
+  type: kedro_datasets.pandas.CSVDataset
+  filepath: data/04_feature/metrics_table.csv
+
+report:
+  type: kedro_datasets.json.JSONDataset
+  filepath: data/08_reporting/report.json
