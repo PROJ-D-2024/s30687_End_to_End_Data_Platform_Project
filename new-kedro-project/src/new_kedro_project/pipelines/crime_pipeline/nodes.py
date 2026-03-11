@@ -40,34 +40,6 @@ def clean_transform(df: pd.DataFrame) -> pd.DataFrame:
         raise ValueError(f"Missing columns: {missing}")
 
     return df
-# def clean_transform(df: pd.DataFrame) -> pd.DataFrame:
-#
-#     df.columns = [c.strip().lower().replace(" ", "_") for c in df.columns]
-#
-#     df = df.dropna(how="all")
-#     df = df.replace(r"^\s*$", pd.NA, regex=True)
-#     df = df.drop_duplicates()
-#
-#     # tylko potrzebne kolumny
-#     keep_columns = [
-#         "id",
-#         "case_number",
-#         "date",
-#         "primary_type",
-#         "description",
-#         "location_description",
-#         "arrest",
-#         "domestic",
-#         "district",
-#         "year"
-#     ]
-#
-#     existing = [c for c in keep_columns if c in df.columns]
-#     df = df[existing]
-#
-#     df = df.reset_index(drop=True)
-#
-#     return df
 
 
 def feature_or_aggregate(df: pd.DataFrame, top_k: int) -> pd.DataFrame:
