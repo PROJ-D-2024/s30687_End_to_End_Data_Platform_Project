@@ -4,11 +4,7 @@ from pyspark.sql.functions import (
 )
 from pyspark.sql.types import IntegerType, LongType
 
-# # 1. SparkSession
-# spark = (SparkSession.builder
-#     .appName("ChicagoCrimesSparkAssignment")
-#     .master("local[*]")
-#     .getOrCreate())
+
 
 spark = (
     SparkSession.builder
@@ -29,9 +25,7 @@ df.printSchema()
 print("Raw Row Count")
 print(df.count())
 
-# 3. Data cleaning & transformations
 
-# a) filter invalid/null rows
 df_clean = df.filter(
     col("id").isNotNull() &
     col("case_number").isNotNull() &
@@ -40,15 +34,12 @@ df_clean = df.filter(
     col("arrest").isNotNull()
 )
 
-# b) cast columns to correct types
 df_clean = (df_clean
             .withColumn("id", col("id").cast(LongType()))
             .withColumn("year", col("year").cast(IntegerType())))
 
-# d) remove duplicates
 df_clean = df_clean.dropDuplicates(["id", "case_number"])
 
-# e) create derived columns
 df_clean = (df_clean
             .withColumn("arrest_int", when(col("arrest") == True, 1).otherwise(0))
             .withColumn("domestic_int", when(col("domestic") == True, 1).otherwise(0)))
@@ -59,7 +50,6 @@ df_clean.printSchema()
 print("Sample")
 df_clean.select("id","description","arrest").show(10, truncate=False)
 
-# 4. Aggregation
 agg_df = df_clean.groupBy("primary_type").agg(
     count("*").alias("total_crimes"),
     avg("arrest_int").alias("avg_arrest_rate"),
@@ -67,7 +57,6 @@ agg_df = df_clean.groupBy("primary_type").agg(
 
 agg_df.show(20, truncate=False)
 
-# Optional extra action
 print("Number of aggregated groups")
 print(agg_df.count())
 
